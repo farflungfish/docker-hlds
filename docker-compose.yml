@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+  hlds:
+    image: windurst/hlds
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "27015:27015/tcp"
+      - "27015:27015/udp"
+    environment:
+      - MAXPLAYERS=10
+      - START_MAP=bounce
+      - SERVER_NAME=Doug's Bounce Experience
