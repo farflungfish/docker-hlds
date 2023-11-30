@@ -19,6 +19,15 @@ jobs:
       packages: write
 
     steps:
+
+      -
+        name: Prepare
+        id: prep
+        run: |
+          GHCR_IMAGE=ghcr.io/${{ github.repository_owner }}/hldm
+          TAGS="${GHCR_IMAGE}:latest"
+          echo ::set-output name=tags::${TAGS}
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
@@ -37,4 +46,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: latest
+          tags: ${{ steps.prep.outputs.tags }}
