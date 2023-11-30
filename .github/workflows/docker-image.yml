@@ -12,10 +12,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --tag latest
-    - name: cache
-      uses: actions/cache@v2
-      with:
-        path: ~/.docker
-        key: docker-cache-${{ hashFiles('dockerfile') }}
-        restore-keys: docker-cache-
+      run: docker buildx build . --tag latest --cache-to type=gha --cache-from=gha
