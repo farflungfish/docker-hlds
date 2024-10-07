@@ -15,7 +15,8 @@ WORKDIR ${install_directory}/hlds
 COPY --chmod=700 --chown=steam:steam hlds_run.sh ${install_directory}/hlds/hlds_run.sh
 # fix Error:./libstdc++.so.6: version `CXXABI_1.3.8' not found (required by /home/steam/hlds/filesystem_stdio.so)
 # https://forums.linuxmint.com/viewtopic.php?t=408576
-RUN mv libstdc++.so.6 libstdc++.so.6.ignoreme
+# RUN mv libstdc++.so.6 libstdc++.so.6.ignoreme
+# appears to not be needed now - 7th oct 2024
 EXPOSE 27015/udp
 EXPOSE 27015/tcp
 ENTRYPOINT [ "/home/steam/hlds/hlds_run.sh" ]
