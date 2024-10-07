@@ -18,6 +18,11 @@
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
 	"features": {
-		"docker-in-docker": "latest"
+		"docker-in-docker": {
+			"version": "latest"
+		},
+		"ghcr.io/audacioustux/devcontainers/tilt:1": {
+			"version: "latest"
+		}
 	}
 }
